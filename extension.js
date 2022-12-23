@@ -14,9 +14,6 @@
  * limitations under the License.
  */
 
-// We use class syntax to define our extension object
-// This isn't actually necessary, but it tends to look the best
-
 let localStorage_ID = undefined;
 
 (function(Scratch) {
