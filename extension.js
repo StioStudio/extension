@@ -113,7 +113,7 @@ let localStorage_ID = undefined;
       localStorage_ID = args.ONE;
       return;
     }
-    b(args){
+    b(){
       return localStorage_ID;
     }
     c(args) {
