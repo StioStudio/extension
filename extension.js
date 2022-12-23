@@ -88,7 +88,7 @@ let localStorage_ID = undefined;
         {
           opcode: 'e',
           blockType: Scratch.BlockType.COMMAND,
-          text: 'local clear ALL'
+          text: 'local remove ALL'
         }
         ]
       };
