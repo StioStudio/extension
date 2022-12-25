@@ -13,9 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-const vm = Scratch.vm;
-
 (function(Scratch) {
     'use strict';
     class MyExtension {
@@ -25,46 +22,33 @@ const vm = Scratch.vm;
           // It should never change!
           // If you choose to make an actual extension, please change this to something else.
           // Only the characters a-z and 0-9 can be used. No spaces or special characters.
-          id: 'stio000devtools',
+          id: 'stio000logic',
     
           // `name` is what the user sees in the toolbox
           // It can be changed without breaking projects.
-          name: 'dev tools',
+          name: 'logic',
     
-          color1: '#1111BB',
+          color1: '#963781',
     
           blocks: [
             {
-              opcode: 'console_log',
-              blockType: Scratch.BlockType.COMMAND,
-              text: 'console.log[ONE]',
-              arguments: {
-                  ONE: {
-                      type: Scratch.ArgumentType.STRING,
-                      defaultValue: 'Hi!'
-                  }
-              }
+                opcode: 'true',
+                blockType: Scratch.BlockType.BOOLEAN,
+                text: 'true',
             },
             {
-                opcode: 'setTurboMode',
-                blockType: Scratch.BlockType.COMMAND,
-                text: 'set turboMode[ONE]',
-                arguments: {
-                    ONE: {
-                        type: Scratch.ArgumentType.BOOLEAN,
-                    }
-                }
-              },
+                opcode: 'false',
+                blockType: Scratch.BlockType.BOOLEAN,
+                text: 'flase',
+            }
           ]
         };
       }
-      console_log(args){
-        console.log(args.ONE);
-        return;
+      true(){
+        return true;
       }
-      setTurboMode(args){
-        vm.setTurboMode(args.ONE);
-        return;
+      false(){
+        return false;
       }
     }
     Scratch.extensions.register(new MyExtension());
