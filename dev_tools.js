@@ -35,6 +35,17 @@ const vm = Scratch.vm;
     
           blocks: [
             {
+                opcode: 'text',
+                blockType: Scratch.BlockType.REPORTER,
+                text: 'text[ONE]',
+                arguments: {
+                    ONE: {
+                        type: Scratch.ArgumentType.STRING,
+                        defaultValue: 'Hi!'
+                    }
+                }
+            },
+            {
               opcode: 'console_log',
               blockType: Scratch.BlockType.COMMAND,
               text: 'console.log[ONE]',
@@ -62,6 +73,9 @@ const vm = Scratch.vm;
             },
           ]
         };
+      }
+      text(args){
+        return args.ONE;
       }
       console_log(args){
         console.log(args.ONE);
