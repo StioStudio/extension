@@ -42,7 +42,7 @@ function getCanvas(){
         // It can be changed without breaking projects.
         name: 'image',
   
-        color1: '#11BB11',
+        color1: '#119911',
   
         blocks: [
           {

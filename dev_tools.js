@@ -31,7 +31,7 @@ const vm = Scratch.vm;
           // It can be changed without breaking projects.
           name: 'dev tools',
     
-          color1: '#1111BB',
+          color1: '#29beb8',
     
           blocks: [
             {
@@ -67,9 +67,26 @@ const vm = Scratch.vm;
                 }
             },
             {
+                opcode: 'fps',
+                blockType: Scratch.BlockType.COMMAND,
+                text: 'set fps[ONE]',
+                arguments: {
+                    ONE: {
+                        type: Scratch.ArgumentType.STRING,
+                        defaultValue: 30
+                    }
+                }
+            },
+            {
                 opcode: 'requestFullScreen',
                 blockType: Scratch.BlockType.COMMAND,
                 text: 'requestFullScreen',
+            },
+            {
+                opcode: 'vm',
+                blockType: Scratch.BlockType.REPORTER,
+                text: 'vm',
+                disableMonitor: true
             },
           ]
         };
@@ -85,6 +102,10 @@ const vm = Scratch.vm;
         vm.setTurboMode(args.ONE);
         return;
       }
+      fps(args){
+        vm.setFramerate(args.ONE);
+        return;
+      }
       requestFullScreen(){
         if(document.querySelectorAll("canvas").length == 2){
             document.querySelectorAll("canvas")[0].requestFullscreen()
@@ -92,6 +113,9 @@ const vm = Scratch.vm;
         }
         document.querySelectorAll("canvas")[1].requestFullscreen()
         return;
+      }
+      vm(){
+        return vm;
       }
     }
     Scratch.extensions.register(new MyExtension());

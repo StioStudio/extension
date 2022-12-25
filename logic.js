@@ -28,7 +28,7 @@
           // It can be changed without breaking projects.
           name: 'logic',
     
-          color1: '#963781',
+          color1: '#59c059',
     
           blocks: [
             {
