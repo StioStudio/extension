@@ -72,7 +72,11 @@ const vm = Scratch.vm;
         return;
       }
       requestFullScreen(){
-        document.querySelector("canvas").requestFullscreen()
+        if(document.querySelectorAll("canvas").length == 2){
+            document.querySelectorAll("canvas")[0].requestFullscreen()
+            return;
+        }
+        document.querySelectorAll("canvas")[1].requestFullscreen()
         return;
       }
     }
