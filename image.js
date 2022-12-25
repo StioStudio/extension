@@ -14,6 +14,11 @@
  * limitations under the License.
  */
 
+let image = {
+    image: [],
+    name: []
+};
+
 (function(Scratch) {
   'use strict';
   class MyExtension {
@@ -33,9 +38,9 @@
   
         blocks: [
           {
-            opcode: 'get_image',
+            opcode: 'load_image',
             blockType: Scratch.BlockType.REPORTER,
-            text: 'get image[ONE]and wait',
+            text: 'load image[ONE]and wait',
             arguments: {
                 ONE: {
                     type: Scratch.ArgumentType.STRING,
@@ -43,10 +48,36 @@
                 }
             }
           },
+          {
+            opcode: 'save_image',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'save image[ONE][TWO]',
+            arguments: {
+                ONE: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: 'name'
+                },
+                TWO: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: 'image'
+                }
+            }
+          },
+          {
+            opcode: 'get_image',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'get image[ONE]',
+            arguments: {
+                ONE: {
+                    type: Scratch.ArgumentType.STRING,
+                    defaultValue: 'name'
+                }
+            }
+          },
         ]
       };
     }
-    get_image(args){
+    load_image(args){
         let img;
         new Promise((resolve) => {
             img = new Image();
@@ -54,6 +85,18 @@
             img.src = args.ONE;
         });
         return img;
+    }
+    save_image(args){
+        if(image.name.includes(args.ONE)){
+            image.image[image.name.indexOf(args.ONE)] = args.TWO
+            return;
+        }
+        image.name.push(args.ONE)
+        image.image.push(args.TWO)
+        return;
+    }
+    get_image(args){
+        return image.image[image.name.indexOf(args.ONE)]
     }
   }
   Scratch.extensions.register(new MyExtension());
