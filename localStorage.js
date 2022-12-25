@@ -114,17 +114,17 @@ let localStorage_ID = undefined;
       return localStorage_ID;
     }
     c(args) {
-      localStorage.setItem(localStorage_ID+args.ONE, args.TWO);
+      localStorage.setItem([localStorage_ID,args.ONE], args.TWO);
       return;
     }
     d(args) {
-      return localStorage.getItem(localStorage_ID+args.ONE);
+      return localStorage.getItem([localStorage_ID,args.ONE]);
     }
     e(args){
-      return localStorage.getItem(localStorage_ID+args.ONE);
+      return localStorage.getItem([localStorage_ID,args.ONE]);
     }
     f(args){
-      localStorage.removeItem(localStorage_ID+args.ONE);
+      localStorage.removeItem([localStorage_ID,args.ONE]);
       return;
     }
     g(){
