@@ -54,7 +54,12 @@ const vm = Scratch.vm;
                         type: Scratch.ArgumentType.BOOLEAN,
                     }
                 }
-              },
+            },
+            {
+                opcode: 'requestFullScreen',
+                blockType: Scratch.BlockType.COMMAND,
+                text: 'requestFullScreen',
+            },
           ]
         };
       }
@@ -64,6 +69,10 @@ const vm = Scratch.vm;
       }
       setTurboMode(args){
         vm.setTurboMode(args.ONE);
+        return;
+      }
+      requestFullScreen(){
+        document.querySelector("canvas").requestFullscreen()
         return;
       }
     }
