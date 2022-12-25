@@ -27,9 +27,6 @@ function getCanvas(){
     return rem[1];
 }
 
-let canvas = getCanvas()
-const gl = canvas.getContext("experimental-webgl");
-
 (function(Scratch) {
   'use strict';
   class MyExtension {
