@@ -73,5 +73,6 @@ Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/De
 Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Image.js")
 Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Keys.js")
 Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/LocalStorage.js")
+Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Test.js")
 
 
