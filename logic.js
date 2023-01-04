@@ -29,6 +29,7 @@
           name: 'logic',
     
           color1: '#59c059',
+          color2: '#59c059',
     
           blocks: [
             {

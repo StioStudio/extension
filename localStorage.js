@@ -32,6 +32,7 @@ let localStorage_ID = undefined;
         name: 'Local Storage',
   
         color1: '#BB1111',
+        color2: '#BB1111',
   
         blocks: [
           {

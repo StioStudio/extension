@@ -54,6 +54,7 @@ function checkKeys(..._key){
           name: 'keys',
     
           color1: '#5cb1d6',
+          color2: '#5cb1d6',
     
           blocks: [
             {

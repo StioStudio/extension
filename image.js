@@ -43,7 +43,8 @@ function getCanvas(){
         name: 'image',
   
         color1: '#119911',
-  
+        color2: '#119911',
+          
         blocks: [
           {
             opcode: 'load_image',
