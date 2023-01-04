@@ -19,49 +19,6 @@ let image = {
   name: []
 };
 
-Scratch.renderer._gl
-
-function drawImage(tex, texWidth, texHeight, dstX, dstY, stampRotation) {
-  gl.bindTexture(gl.TEXTURE_2D, tex);
-
-  // Tell WebGL to use our shader program pair
-  gl.useProgram(program);
-
-  gl.bindBuffer(gl.ARRAY_BUFFER, quadColorBuffer);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(quadColors), gl.STATIC_DRAW);
-  // Setup the attributes to pull data from our buffers
-  gl.bindBuffer(gl.ARRAY_BUFFER, quadPositionBuffer);
-  gl.enableVertexAttribArray(positionLocation);
-  gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
-  gl.bindBuffer(gl.ARRAY_BUFFER, quadTexCoordBuffer);
-  gl.enableVertexAttribArray(texcoordLocation);
-  gl.vertexAttribPointer(texcoordLocation, 2, gl.FLOAT, false, 0, 0);
-  gl.bindBuffer(gl.ARRAY_BUFFER, quadColorBuffer);
-  gl.enableVertexAttribArray(colorLocation);
-  gl.vertexAttribPointer(colorLocation, 4, gl.FLOAT, false, 0, 0);
-
-  // this matrix will convert from pixels to clip space
-  var matrix = m4.orthographic(0, gl.canvas.width, gl.canvas.height, 0, -1, 1);
-
-  // this matrix will translate our quad to dstX, dstY
-  matrix = m4.translate(matrix, dstX, dstY, 0);
-
-  matrix = m4.zRotate(matrix, degreesToRadians(stampRotation))
-
-  // this matrix will scale our 1 unit quad
-  // from 1 unit to texWidth, texHeight units
-  matrix = m4.scale(matrix, texWidth, texHeight, 1);
-
-  // Set the matrix.
-  gl.uniformMatrix4fv(matrixLocation, false, matrix);
-
-  // Tell the shader to get the texture from texture unit 0
-  gl.uniform1i(textureLocation, 0);
-
-  // draw the quad (2 triangles, 6 vertices)
-  gl.drawArrays(gl.TRIANGLES, 0, 6);
-}
-
 function getCanvas() {
   let rem = document.querySelectorAll("canvas")
   if (rem.length == 2) {
@@ -72,18 +29,18 @@ function getCanvas() {
 
 (function (Scratch) {
   'use strict';
-  class MyExtension {
+  class Image {
     getInfo() {
       return {
         // `id` is the internal ID of the extension
         // It should never change!
         // If you choose to make an actual extension, please change this to something else.
         // Only the characters a-z and 0-9 can be used. No spaces or special characters.
-        id: 'stio000image',
+        id: 'stio000Image',
 
         // `name` is what the user sees in the toolbox
         // It can be changed without breaking projects.
-        name: 'image',
+        name: 'Image',
 
         color1: '#119911',
         color2: '#119911',
@@ -203,5 +160,5 @@ function getCanvas() {
       return;
     }
   }
-  Scratch.extensions.register(new MyExtension());
+  Scratch.extensions.register(new Image());
 })(Scratch);

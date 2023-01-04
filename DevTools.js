@@ -18,18 +18,18 @@ const vm = Scratch.vm;
 
 (function(Scratch) {
     'use strict';
-    class MyExtension {
+    class Dev_Tools {
       getInfo () {
         return { 
           // `id` is the internal ID of the extension
           // It should never change!
           // If you choose to make an actual extension, please change this to something else.
           // Only the characters a-z and 0-9 can be used. No spaces or special characters.
-          id: 'stio000devtools',
+          id: 'stio000DevTools',
     
           // `name` is what the user sees in the toolbox
           // It can be changed without breaking projects.
-          name: 'dev tools',
+          name: 'Dev Tools',
     
           color1: '#29beb8',
           color2: '#29beb8',
@@ -120,5 +120,5 @@ const vm = Scratch.vm;
         return Scratch;
       }
     }
-    Scratch.extensions.register(new MyExtension());
+    Scratch.extensions.register(new Dev_Tools());
   })(Scratch);

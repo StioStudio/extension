@@ -40,18 +40,18 @@ function checkKeys(..._key){
 
 (function(Scratch) {
     'use strict';
-    class MyExtension {
+    class Keys {
       getInfo () {
         return { 
           // `id` is the internal ID of the extension
           // It should never change!
           // If you choose to make an actual extension, please change this to something else.
           // Only the characters a-z and 0-9 can be used. No spaces or special characters.
-          id: 'stio000keys',
+          id: 'stio000Keys',
     
           // `name` is what the user sees in the toolbox
           // It can be changed without breaking projects.
-          name: 'keys',
+          name: 'Keys',
     
           color1: '#5cb1d6',
           color2: '#5cb1d6',
@@ -66,10 +66,10 @@ function checkKeys(..._key){
         };
       }
       active_keys(){
-        return keys;
+        return Keys;
       }
     }
-    Scratch.extensions.register(new MyExtension());
+    Scratch.extensions.register(new Keys());
   })(Scratch);
   
 addEventListener("keydown", (e)=>{

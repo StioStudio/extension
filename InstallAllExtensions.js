@@ -16,7 +16,7 @@
 
 (function(Scratch) {
     'use strict';
-    class MyExtension {
+    class install_all_extensions {
       getInfo () {
           return { 
               // `id` is the internal ID of the extension
@@ -27,7 +27,7 @@
               
               // `name` is what the user sees in the toolbox
               // It can be changed without breaking projects.
-              name: 'extensions',
+              name: 'Extensions',
               
               color1: '#59c059',
               color2: '#59c059',
@@ -65,14 +65,13 @@
         
     }
 }
-Scratch.extensions.register(new MyExtension());
+Scratch.extensions.register(new install_all_extensions());
 })(Scratch);
 
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/test.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/dev_tools.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/image.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/keys.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/localStorage.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/logic.js")
+Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/LogicGates.js")
+Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/DevTools.js")
+Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Image.js")
+Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Keys.js")
+Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/LocalStorage.js")
 
 

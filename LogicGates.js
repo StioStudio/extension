@@ -1,23 +1,38 @@
 (function(Scratch) {
   'use strict';
-  class LogicGatesExtension {
+  class LogicGates {
     getInfo () {
       return { 
-        id: 'logicGates',
+        id: 'LogicGates',
         name: 'Logic Gates',
-        color1: '#1111BB',
-        color2: '#1111BB',
+        color1: '#59c059',
+        color2: '#59c059',
         blocks: [
           {
             opcode: 'and',
             blockType: Scratch.BlockType.BOOLEAN,
-            text: 'AND [A] [B]',
+            text: '[ONE] AND [TWO]',
             arguments: {
-                A: {
+                ONE: {
                     type: Scratch.ArgumentType.BOOLEAN,
                     defaultValue: false
                 },
-                B: {
+                TWO: {
+                    type: Scratch.ArgumentType.BOOLEAN,
+                    defaultValue: false
+                }
+            }
+          },
+          {
+            opcode: 'nor',
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: '[ONE] NOR [TWO]',
+            arguments: {
+                ONE: {
+                    type: Scratch.ArgumentType.BOOLEAN,
+                    defaultValue: false
+                },
+                TWO: {
                     type: Scratch.ArgumentType.BOOLEAN,
                     defaultValue: false
                 }
@@ -26,24 +41,13 @@
           {
             opcode: 'or',
             blockType: Scratch.BlockType.BOOLEAN,
-            text: 'OR [A] [B]',
+            text: '[ONE] OR [TWO]',
             arguments: {
-                A: {
+                ONE: {
                     type: Scratch.ArgumentType.BOOLEAN,
                     defaultValue: false
                 },
-                B: {
-                    type: Scratch.ArgumentType.BOOLEAN,
-                    defaultValue: false
-                }
-            }
-          },
-          {
-            opcode: 'not',
-            blockType: Scratch.BlockType.BOOLEAN,
-            text: 'NOT [A]',
-            arguments: {
-                A: {
+                TWO: {
                     type: Scratch.ArgumentType.BOOLEAN,
                     defaultValue: false
                 }
@@ -52,18 +56,29 @@
           {
             opcode: 'xor',
             blockType: Scratch.BlockType.BOOLEAN,
-            text: 'XOR [A] [B]',
+            text: '[ONE] XOR [TWO]',
             arguments: {
-                A: {
+                ONE: {
+                  type: Scratch.ArgumentType.BOOLEAN,
+                    defaultValue: false
+                  },
+                  TWO: {
                     type: Scratch.ArgumentType.BOOLEAN,
                     defaultValue: false
-                },
-                B: {
-                    type: Scratch.ArgumentType.BOOLEAN,
-                    defaultValue: false
+                  }
                 }
-            }
-          },
+              },
+              {
+                opcode: 'not',
+                blockType: Scratch.BlockType.BOOLEAN,
+                text: 'NOT [ONE]',
+                arguments: {
+                    ONE: {
+                        type: Scratch.ArgumentType.BOOLEAN,
+                        defaultValue: false
+                    }
+                }
+              },
           {
             opcode: 'true',
             blockType: Scratch.BlockType.BOOLEAN,
@@ -78,16 +93,19 @@
       };
     }
     and(args) {
-      return args.A && args.B;
+      return args.ONE && args.TWO;
     }
+    nor(args) {
+      return !(args.ONE || args.TWO);
+    }    
     or(args) {
-      return args.A || args.B;
-    }
-    not(args) {
-      return !args.A;
+      return args.ONE || args.TWO;
     }
     xor(args) {
-      return args.A !== args.B;
+      return args.ONE !== args.TWO;
+    }
+    not(args) {
+      return !args.ONE;
     }
     true() {
       return true;
@@ -96,5 +114,5 @@
       return false;
     }
   }
-  Scratch.extensions.register(new LogicGatesExtension());
+Scratch.extensions.register(new LogicGates());
 })(Scratch);
