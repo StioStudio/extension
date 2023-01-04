@@ -32,6 +32,7 @@ const vm = Scratch.vm;
           name: 'dev tools',
     
           color1: '#29beb8',
+          color2: '#29beb8',
     
           blocks: [
             {
@@ -83,10 +84,15 @@ const vm = Scratch.vm;
                 text: 'requestFullScreen',
             },
             {
-                opcode: 'vm',
+                opcode: 'Scratch',
                 blockType: Scratch.BlockType.REPORTER,
-                text: 'vm',
+                text: 'Scratch',
                 disableMonitor: true
+            },
+            {
+              opcode: 'async',
+              blockType: Scratch.BlockType.BUTTON,
+              text: 'async',
             },
           ]
         };
@@ -107,17 +113,12 @@ const vm = Scratch.vm;
         return;
       }
       requestFullScreen(){
-        if(document.querySelectorAll("canvas").length == 2){
-            document.querySelectorAll("canvas")[0].requestFullscreen()
-            return;
-        }
-        document.querySelectorAll("canvas")[1].requestFullscreen()
+        Scratch.renderer.canvas.requestFullscreen()
         return;
       }
-      vm(){
-        return vm;
+      Scratch(){
+        return Scratch;
       }
     }
     Scratch.extensions.register(new MyExtension());
   })(Scratch);
-  
