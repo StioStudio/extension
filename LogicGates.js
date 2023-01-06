@@ -1,3 +1,8 @@
+/**!
+ * This extension was made available by chat gpt3.
+ * So everything that is here can be used, but may have errors.
+ * Use on own risk.
+ */
 (function (Scratch) {
   'use strict';
   class LogicGates {

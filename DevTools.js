@@ -91,7 +91,7 @@ const vm = Scratch.vm;
             },
             {
               opcode: 'async',
-              blockType: Scratch.BlockType.BUTTON,
+              blockType: Scratch.BlockType.CONDITIONAL,
               text: 'async',
             },
           ]

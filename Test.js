@@ -34,47 +34,66 @@
     
           blocks: [
             {
-              opcode: '001',
+              opcode: 'BOOLEAN',
               blockType: Scratch.BlockType.BOOLEAN,
               text: 'Hi',
             },
             {
-              opcode: '002',
+              opcode: 'BUTTON',
               blockType: Scratch.BlockType.BUTTON,
               text: 'Hi',
             },
             {
-              opcode: '003',
+              opcode: 'COMMAND',
               blockType: Scratch.BlockType.COMMAND,
               text: 'Hi',
             },
             {
-              opcode: '004',
+              opcode: 'CONDITIONAL',
               blockType: Scratch.BlockType.CONDITIONAL,
-              text: 'Hi',
+              text: 'if[ONE]',
+              arguments: {
+                ONE: {
+                    type: Scratch.ArgumentType.BOOLEAN,
+                    defaultValue: false
+                }
+              }
             },
             {
-              opcode: '005',
+              opcode: 'EVENT',
               blockType: Scratch.BlockType.EVENT,
               text: 'Hi',
             },
             {
-              opcode: '006',
+              opcode: 'HAT',
               blockType: Scratch.BlockType.HAT,
               text: 'Hi',
             },
             {
-              opcode: '007',
+              opcode: 'LOOP',
               blockType: Scratch.BlockType.LOOP,
               text: 'Hi',
             },
             {
-              opcode: '008',
+              opcode: 'REPORTER',
               blockType: Scratch.BlockType.REPORTER,
               text: 'Hi',
             },
           ]
         };
+      }
+      CONDITIONAL(a, b, c, d, e, f, g, h, i, j, k){
+        console.log(a, b, c, d, e, f, g, h, i, j, k);
+		
+        const currentBlockId = b.thread.peekStack();
+        const branchBlock = b.thread.target.blocks.getBranch(
+                currentBlockId,
+                0
+            );
+    
+        if (branchBlock) {
+          b.sequencer.runtime._pushThread(branchBlock, b.target, {});
+        }
       }
     }
     Scratch.extensions.register(new Test());
