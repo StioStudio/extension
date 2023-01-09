@@ -16,7 +16,7 @@
 
 (function(Scratch) {
     'use strict';
-    class Test {
+    class stio_studio_Test {
       getInfo () {
         return { 
           // `id` is the internal ID of the extension
@@ -96,5 +96,5 @@
         }
       }
     }
-    Scratch.extensions.register(new Test());
+    Scratch.extensions.register(new stio_studio_Test());
   })(Scratch);

@@ -16,7 +16,7 @@
 
 (function(Scratch) {
     'use strict';
-    class install_all_extensions {
+    class stio_studio_install_all_extensions {
       getInfo () {
           return { 
               // `id` is the internal ID of the extension
@@ -65,7 +65,7 @@
         
     }
 }
-Scratch.extensions.register(new install_all_extensions());
+Scratch.extensions.register(new stio_studio_install_all_extensions());
 })(Scratch);
 
 Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/LogicGates.js")

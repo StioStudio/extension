@@ -6,7 +6,7 @@
 (function (Scratch) {
     'use strict';
 
-    class WebSocketExtension {
+    class stio_studio_WebSocketExtension {
         // The getInfo function is used to define the extension's blocks and metadata
         getInfo() {
             return {
@@ -109,5 +109,5 @@
     }
 
     // Register the extension with the Scratch runtime
-    Scratch.extensions.register(new WebSocketExtension());
+    Scratch.extensions.register(new stio_studio_WebSocketExtension());
 })(Scratch);  

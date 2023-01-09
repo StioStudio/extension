@@ -5,7 +5,7 @@
  */
 (function (Scratch) {
   'use strict';
-  class LogicGates {
+  class stio_studio_LogicGates {
     getInfo() {
       return {
         id: 'LogicGates',
@@ -155,5 +155,5 @@
       return args.ONE === args.TWO;
     }
   }
-  Scratch.extensions.register(new LogicGates());
+  Scratch.extensions.register(new stio_studio_LogicGates());
 })(Scratch);
