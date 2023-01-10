@@ -18,7 +18,7 @@ const vm = Scratch.vm;
 
 (function(Scratch) {
     'use strict';
-    class stio_studio_Dev_Tools {
+    class stio_studio_DevTools {
       getInfo () {
         return { 
           // `id` is the internal ID of the extension
@@ -120,5 +120,5 @@ const vm = Scratch.vm;
         return Scratch;
       }
     }
-    Scratch.extensions.register(new stio_studio_Dev_Tools());
+    Scratch.extensions.register(new stio_studio_DevTools());
   })(Scratch);
