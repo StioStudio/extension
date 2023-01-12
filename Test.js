@@ -16,7 +16,7 @@
 
 (function(Scratch) {
     'use strict';
-    class stio_studio_AllBlocks {
+    class stio_studio_Test {
       getInfo () {
         return { 
           // `id` is the internal ID of the extension
