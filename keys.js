@@ -16,7 +16,7 @@
 
 
 
-let keys = []
+let keys_active = []
 
 Array.prototype.remove = function(_num){
     let array = this.valueOf()
@@ -30,7 +30,7 @@ Array.prototype.remove = function(_num){
 function checkKeys(..._key){
     let rem = false
     repeat(_key.length,(i)=>{
-        if(keys.includes(_key[i])){
+        if(keys_active.includes(_key[i])){
             rem = true
         }
     })
@@ -66,17 +66,17 @@ function checkKeys(..._key){
         };
       }
       active_keys(){
-        return Keys;
+        return keys_active;
       }
     }
     Scratch.extensions.register(new Keys());
   })(Scratch);
   
 addEventListener("keydown", (e)=>{
-    if(keys.includes(e.key)) return
-    keys.push(e.key)
+    if(keys_active.includes(e.key)) return
+    keys_active.push(e.key)
 })
 
 addEventListener("keyup",(e)=>{
-    keys.remove(e.key)
+    keys_active.remove(e.key)
 })

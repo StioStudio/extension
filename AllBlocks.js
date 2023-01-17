@@ -16,7 +16,7 @@
 
 (function(Scratch) {
     'use strict';
-    class stio_studio_Test {
+    class stio_studio_AllBlocks {
       getInfo () {
         return { 
           // `id` is the internal ID of the extension
@@ -81,9 +81,6 @@
             },
           ]
         };
-      }
-      BUTTON(a, b, c, d, e, f, g, h, i, j, k){
-        console.log(a, b, c, d, e, f, g, h, i, j, k);
       }
       CONDITIONAL(a, b, c, d, e, f, g, h, i, j, k){
         console.log(a, b, c, d, e, f, g, h, i, j, k);

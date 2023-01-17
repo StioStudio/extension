@@ -18,7 +18,7 @@ let localStorage_ID = undefined;
 
 (function(Scratch) {
   'use strict';
-  class LocalStorage {
+  class stio_studio_LocalStorage {
     getInfo () {
       return { 
         // `id` is the internal ID of the extension
@@ -133,5 +133,5 @@ let localStorage_ID = undefined;
       return;
     }
   }
-  Scratch.extensions.register(new LocalStorage());
+  Scratch.extensions.register(new stio_studio_LocalStorage());
 })(Scratch);

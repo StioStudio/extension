@@ -29,7 +29,7 @@ function getCanvas() {
 
 (function (Scratch) {
   'use strict';
-  class Image {
+  class stio_studio_Image {
     getInfo() {
       return {
         // `id` is the internal ID of the extension
@@ -91,6 +91,20 @@ function getCanvas() {
               ONE: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: 'image'
+              }
+            }
+          },
+          {
+            opcode: 'add_costume',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'add costume[ONE] # NOT WORKING! # [TWO]',
+            arguments: {
+              ONE: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: 'image'
+              },
+              TWO: {
+                type: Scratch.ArgumentType.Image,
               }
             }
           },
@@ -159,6 +173,10 @@ function getCanvas() {
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       return;
     }
+    add_costume(args) {
+      Scratch.vm.addCostume
+      return;
+    }
   }
-  Scratch.extensions.register(new Image());
+  Scratch.extensions.register(new stio_studio_Image());
 })(Scratch);
