@@ -82,6 +82,9 @@
           ]
         };
       }
+      BUTTON(a, b, c, d, e, f, g, h, i, j, k){
+        console.log(a, b, c, d, e, f, g, h, i, j, k);
+      }
       CONDITIONAL(a, b, c, d, e, f, g, h, i, j, k){
         console.log(a, b, c, d, e, f, g, h, i, j, k);
 		

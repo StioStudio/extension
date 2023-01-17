@@ -84,6 +84,11 @@ const vm = Scratch.vm;
                 text: 'requestFullScreen',
             },
             {
+              opcode: 'PictureInPicture',
+              blockType: Scratch.BlockType.COMMAND,
+              text: 'PictureInPicture',
+            },
+            {
                 opcode: 'Scratch',
                 blockType: Scratch.BlockType.REPORTER,
                 text: 'Scratch',
@@ -92,7 +97,7 @@ const vm = Scratch.vm;
             {
               opcode: 'async',
               blockType: Scratch.BlockType.CONDITIONAL,
-              text: 'async',
+              text: 'async # NOT WORKING! #',
             },
           ]
         };
