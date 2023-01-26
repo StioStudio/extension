@@ -14,21 +14,13 @@
  * limitations under the License.
  */
 
-let image = {
-  image: [],
-  name: []
-};
-
-function getCanvas() {
-  let rem = document.querySelectorAll("canvas")
-  if (rem.length == 2) {
-    return rem[0];
-  }
-  return rem[1];
-}
 
 (function (Scratch) {
   'use strict';
+  let image = {
+    image: [],
+    name: []
+  };
   class stio_studio_Image {
     getInfo() {
       return {
@@ -44,7 +36,7 @@ function getCanvas() {
 
         color1: '#119911',
         color2: '#119911',
-        
+
         blocks: [
           {
             opcode: 'load_image',

@@ -14,10 +14,10 @@
  * limitations under the License.
  */
 
-let localStorage_ID = undefined;
 
 (function(Scratch) {
   'use strict';
+  let localStorage_ID = undefined;
   class LocalStorage {
     getInfo () {
       return { 

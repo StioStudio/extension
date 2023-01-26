@@ -1,5 +1,5 @@
 /*!
- * Copyright 2023 StioStudio
+* Copyright 2023 StioStudio
  * 
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,13 @@
 
 (function(Scratch) {
     'use strict';
+    Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/LogicGates.js")
+    Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/DevTools.js")
+    Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Image.js")
+    Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Keys.js")
+    Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/LocalStorage.js")
+    Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Test.js")
+    Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/WebSocket.js")
     class stio_studio_InstallAllExtensions {
       getInfo () {
           return { 
@@ -68,12 +75,5 @@
 Scratch.extensions.register(new stio_studio_InstallAllExtensions());
 })(Scratch);
 
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/LogicGates.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/DevTools.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Image.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Keys.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/LocalStorage.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/Test.js")
-Scratch.vm.extensionManager.loadExtensionURL("http://localhost:8000/extension/WebSocket.js")
 
 

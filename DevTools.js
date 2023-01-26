@@ -14,116 +14,116 @@
  * limitations under the License.
  */
 
-const vm = Scratch.vm;
 
-(function(Scratch) {
-    'use strict';
-    class stio_studio_DevTools {
-      getInfo () {
-        return { 
-          // `id` is the internal ID of the extension
-          // It should never change!
-          // If you choose to make an actual extension, please change this to something else.
-          // Only the characters a-z and 0-9 can be used. No spaces or special characters.
-          id: 'stio000DevTools',
-    
-          // `name` is what the user sees in the toolbox
-          // It can be changed without breaking projects.
-          name: 'Dev Tools',
-    
-          color1: '#29beb8',
-          color2: '#29beb8',
-    
-          blocks: [
-            {
-                opcode: 'text',
-                blockType: Scratch.BlockType.REPORTER,
-                text: 'text[ONE]',
-                arguments: {
-                    ONE: {
-                        type: Scratch.ArgumentType.STRING,
-                        defaultValue: 'Hi!'
-                    }
-                }
-            },
-            {
-              opcode: 'console_log',
-              blockType: Scratch.BlockType.COMMAND,
-              text: 'console.log[ONE]',
-              arguments: {
-                  ONE: {
-                      type: Scratch.ArgumentType.STRING,
-                      defaultValue: 'Hi!'
-                  }
+(function (Scratch) {
+  'use strict';
+  const vm = Scratch.vm;
+  class stio_studio_DevTools {
+    getInfo() {
+      return {
+        // `id` is the internal ID of the extension
+        // It should never change!
+        // If you choose to make an actual extension, please change this to something else.
+        // Only the characters a-z and 0-9 can be used. No spaces or special characters.
+        id: 'stio000DevTools',
+
+        // `name` is what the user sees in the toolbox
+        // It can be changed without breaking projects.
+        name: 'Dev Tools',
+
+        color1: '#29beb8',
+        color2: '#29beb8',
+
+        blocks: [
+          {
+            opcode: 'text',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'text[ONE]',
+            arguments: {
+              ONE: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: 'Hi!'
               }
-            },
-            {
-                opcode: 'setTurboMode',
-                blockType: Scratch.BlockType.COMMAND,
-                text: 'set turboMode[ONE]',
-                arguments: {
-                    ONE: {
-                        type: Scratch.ArgumentType.BOOLEAN,
-                    }
-                }
-            },
-            {
-                opcode: 'fps',
-                blockType: Scratch.BlockType.COMMAND,
-                text: 'set fps[ONE]',
-                arguments: {
-                    ONE: {
-                        type: Scratch.ArgumentType.STRING,
-                        defaultValue: 30
-                    }
-                }
-            },
-            {
-                opcode: 'requestFullScreen',
-                blockType: Scratch.BlockType.COMMAND,
-                text: 'requestFullScreen',
-            },
-            {
-              opcode: 'PictureInPicture',
-              blockType: Scratch.BlockType.COMMAND,
-              text: 'PictureInPicture',
-            },
-            {
-                opcode: 'Scratch',
-                blockType: Scratch.BlockType.REPORTER,
-                text: 'Scratch',
-                disableMonitor: true
-            },
-            {
-              opcode: 'async',
-              blockType: Scratch.BlockType.CONDITIONAL,
-              text: 'async # NOT WORKING! #',
-            },
-          ]
-        };
-      }
-      text(args){
-        return args.ONE;
-      }
-      console_log(args){
-        console.log(args.ONE);
-        return;
-      }
-      setTurboMode(args){
-        vm.setTurboMode(args.ONE);
-        return;
-      }
-      fps(args){
-        vm.setFramerate(args.ONE);
-        return;
-      }
-      requestFullScreen(){
-        Scratch.renderer.canvas.requestFullscreen()
-        return;
-      }
-      Scratch(){
-        return Scratch;
-      }
+            }
+          },
+          {
+            opcode: 'console_log',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'console.log[ONE]',
+            arguments: {
+              ONE: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: 'Hi!'
+              }
+            }
+          },
+          {
+            opcode: 'setTurboMode',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'set turboMode[ONE]',
+            arguments: {
+              ONE: {
+                type: Scratch.ArgumentType.BOOLEAN,
+              }
+            }
+          },
+          {
+            opcode: 'fps',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'set fps[ONE]',
+            arguments: {
+              ONE: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: 30
+              }
+            }
+          },
+          {
+            opcode: 'requestFullScreen',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'requestFullScreen',
+          },
+          {
+            opcode: 'PictureInPicture',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'PictureInPicture',
+          },
+          {
+            opcode: 'Scratch',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'Scratch',
+            disableMonitor: true
+          },
+          {
+            opcode: 'async',
+            blockType: Scratch.BlockType.CONDITIONAL,
+            text: 'async # NOT WORKING! #',
+          },
+        ]
+      };
     }
-    Scratch.extensions.register(new stio_studio_DevTools());
-  })(Scratch);
+    text(args) {
+      return args.ONE;
+    }
+    console_log(args) {
+      console.log(args.ONE);
+      return;
+    }
+    setTurboMode(args) {
+      vm.setTurboMode(args.ONE);
+      return;
+    }
+    fps(args) {
+      vm.setFramerate(args.ONE);
+      return;
+    }
+    requestFullScreen() {
+      Scratch.renderer.canvas.requestFullscreen()
+      return;
+    }
+    Scratch() {
+      return Scratch;
+    }
+  }
+  Scratch.extensions.register(new stio_studio_DevTools());
+})(Scratch);

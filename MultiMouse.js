@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-let localStorage_ID = undefined;
 
 (function (Scratch) {
     'use strict';
+    let mouse = []
+    let canvas = Scratch
     class stio_studio_LocalStorage {
         getInfo() {
             return {

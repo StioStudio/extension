@@ -16,67 +16,67 @@
 
 
 
-let keys_active = []
 
-Array.prototype.remove = function(_num){
+(function (Scratch) {
+  'use strict';
+  let keys_active = []
+
+  Array.prototype.remove = function (_num) {
     let array = this.valueOf()
     let index = array.indexOf(_num);
     if (index > -1) {
-        array.splice(index, 1);
+      array.splice(index, 1);
     }
-    return(array)
-}
+    return (array)
+  }
 
-function checkKeys(..._key){
+  function checkKeys(..._key) {
     let rem = false
-    repeat(_key.length,(i)=>{
-        if(keys_active.includes(_key[i])){
-            rem = true
-        }
+    repeat(_key.length, (i) => {
+      if (keys_active.includes(_key[i])) {
+        rem = true
+      }
     })
-    return(rem)
-}
+    return (rem)
+  }
 
+  class Keys {
+    getInfo() {
+      return {
+        // `id` is the internal ID of the extension
+        // It should never change!
+        // If you choose to make an actual extension, please change this to something else.
+        // Only the characters a-z and 0-9 can be used. No spaces or special characters.
+        id: 'stio000Keys',
 
-(function(Scratch) {
-    'use strict';
-    class Keys {
-      getInfo () {
-        return { 
-          // `id` is the internal ID of the extension
-          // It should never change!
-          // If you choose to make an actual extension, please change this to something else.
-          // Only the characters a-z and 0-9 can be used. No spaces or special characters.
-          id: 'stio000Keys',
-    
-          // `name` is what the user sees in the toolbox
-          // It can be changed without breaking projects.
-          name: 'Keys',
-    
-          color1: '#5cb1d6',
-          color2: '#5cb1d6',
-    
-          blocks: [
-            {
-                opcode: 'active_keys',
-                blockType: Scratch.BlockType.REPORTER,
-                text: 'active keys',
-            }
-          ]
-        };
-      }
-      active_keys(){
-        return keys_active;
-      }
+        // `name` is what the user sees in the toolbox
+        // It can be changed without breaking projects.
+        name: 'Keys',
+
+        color1: '#5cb1d6',
+        color2: '#5cb1d6',
+
+        blocks: [
+          {
+            opcode: 'active_keys',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'active keys',
+          }
+        ]
+      };
     }
-    Scratch.extensions.register(new Keys());
-  })(Scratch);
-  
-addEventListener("keydown", (e)=>{
-    if(keys_active.includes(e.key)) return
-    keys_active.push(e.key)
+    active_keys() {
+      return keys_active;
+    }
+  }
+  Scratch.extensions.register(new Keys());
+})(Scratch);
+
+addEventListener("keydown", (e) => {
+  if (keys_active.includes(e.key)) return
+  keys_active.push(e.key)
 })
 
-addEventListener("keyup",(e)=>{
-    keys_active.remove(e.key)
+addEventListener("keyup", (e) => {
+  keys_active.remove(e.key)
 })

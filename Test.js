@@ -14,90 +14,90 @@
  * limitations under the License.
  */
 
-(function(Scratch) {
-    'use strict';
-    class stio_studio_Test {
-      getInfo () {
-        return { 
-          // `id` is the internal ID of the extension
-          // It should never change!
-          // If you choose to make an actual extension, please change this to something else.
-          // Only the characters a-z and 0-9 can be used. No spaces or special characters.
-          id: 'stio000AllBlocks',
-    
-          // `name` is what the user sees in the toolbox
-          // It can be changed without breaking projects.
-          name: 'AllBlocks',
-    
-          color1: '#909090',
-          color2: '#909090',
-    
-          blocks: [
-            {
-              opcode: 'BOOLEAN',
-              blockType: Scratch.BlockType.BOOLEAN,
-              text: 'Hi',
-            },
-            {
-              opcode: 'BUTTON',
-              blockType: Scratch.BlockType.BUTTON,
-              text: 'Hi',
-            },
-            {
-              opcode: 'COMMAND',
-              blockType: Scratch.BlockType.COMMAND,
-              text: 'Hi',
-            },
-            {
-              opcode: 'CONDITIONAL',
-              blockType: Scratch.BlockType.CONDITIONAL,
-              text: 'if[ONE]',
-              arguments: {
-                ONE: {
-                    type: Scratch.ArgumentType.BOOLEAN,
-                    defaultValue: false
-                }
+(function (Scratch) {
+  'use strict';
+  class stio_studio_Test {
+    getInfo() {
+      return {
+        // `id` is the internal ID of the extension
+        // It should never change!
+        // If you choose to make an actual extension, please change this to something else.
+        // Only the characters a-z and 0-9 can be used. No spaces or special characters.
+        id: 'stio000AllBlocks',
+
+        // `name` is what the user sees in the toolbox
+        // It can be changed without breaking projects.
+        name: 'AllBlocks',
+
+        color1: '#909090',
+        color2: '#909090',
+
+        blocks: [
+          {
+            opcode: 'BOOLEAN',
+            blockType: Scratch.BlockType.BOOLEAN,
+            text: 'Hi',
+          },
+          {
+            opcode: 'BUTTON',
+            blockType: Scratch.BlockType.BUTTON,
+            text: 'Hi',
+          },
+          {
+            opcode: 'COMMAND',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'Hi',
+          },
+          {
+            opcode: 'CONDITIONAL',
+            blockType: Scratch.BlockType.CONDITIONAL,
+            text: 'if[ONE]',
+            arguments: {
+              ONE: {
+                type: Scratch.ArgumentType.BOOLEAN,
+                defaultValue: false
               }
-            },
-            {
-              opcode: 'EVENT',
-              blockType: Scratch.BlockType.EVENT,
-              text: 'Hi',
-            },
-            {
-              opcode: 'HAT',
-              blockType: Scratch.BlockType.HAT,
-              text: 'Hi',
-            },
-            {
-              opcode: 'LOOP',
-              blockType: Scratch.BlockType.LOOP,
-              text: 'Hi',
-            },
-            {
-              opcode: 'REPORTER',
-              blockType: Scratch.BlockType.REPORTER,
-              text: 'Hi',
-            },
-          ]
-        };
-      }
-      BUTTON(a, b, c, d, e, f, g, h, i, j, k){
-        console.log(a, b, c, d, e, f, g, h, i, j, k);
-      }
-      CONDITIONAL(a, b, c, d, e, f, g, h, i, j, k){
-        console.log(a, b, c, d, e, f, g, h, i, j, k);
-		
-        const currentBlockId = b.thread.peekStack();
-        const branchBlock = b.thread.target.blocks.getBranch(
-                currentBlockId,
-                0
-            );
-    
-        if (branchBlock) {
-          b.sequencer.runtime._pushThread(branchBlock, b.target, {});
-        }
+            }
+          },
+          {
+            opcode: 'EVENT',
+            blockType: Scratch.BlockType.EVENT,
+            text: 'Hi',
+          },
+          {
+            opcode: 'HAT',
+            blockType: Scratch.BlockType.HAT,
+            text: 'Hi',
+          },
+          {
+            opcode: 'LOOP',
+            blockType: Scratch.BlockType.LOOP,
+            text: 'Hi',
+          },
+          {
+            opcode: 'REPORTER',
+            blockType: Scratch.BlockType.REPORTER,
+            text: 'Hi',
+          },
+        ]
+      };
+    }
+    BUTTON(a, b, c, d, e, f, g, h, i, j, k) {
+      console.log(a, b, c, d, e, f, g, h, i, j, k);
+    }
+    CONDITIONAL(a, b, c, d, e, f, g, h, i, j, k) {
+      console.log(a, b, c, d, e, f, g, h, i, j, k);
+
+      const currentBlockId = b.thread.peekStack();
+      const branchBlock = b.thread.target.blocks.getBranch(
+        currentBlockId,
+        0
+      );
+
+      if (branchBlock) {
+        b.sequencer.runtime._pushThread(branchBlock, b.target, {});
       }
     }
-    Scratch.extensions.register(new stio_studio_Test());
-  })(Scratch);
+  }
+  Scratch.extensions.register(new stio_studio_Test());
+})(Scratch);
