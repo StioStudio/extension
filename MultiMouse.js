@@ -17,23 +17,61 @@
 
 (function (Scratch) {
     'use strict';
-    let mouse = []
-    let canvas = Scratch
-    class stio_studio_LocalStorage {
+    
+    let canvas = Scratch.renderer.canvas
+
+    canvas.addEventListener("pointerdown", (e)=>{
+        addDot(e)
+    })
+
+    canvas.addEventListener("pointermove", (e)=>{
+        const dotId = e.pointerId
+        if (dotId == null) return
+        
+        var dot = document.getElementById(dotId)
+        if (dot == null) {
+            addDot(e)
+            dot = document.getElementById(dotId)
+        }
+        postionDot(e, dot)
+    })
+
+    function addDot(e){
+        const dot = document.createElement("div")
+        dot.classList.add("dot")
+        dot.id = e.pointerId
+        dot.style.position = "absolute"
+        dot.style.backgroundColor = "#ff0000"
+        dot.style.zIndex = 100
+        postionDot(e, dot)
+        document.body.append(dot)
+    }
+
+    function postionDot(e, dot) {
+        console.log(dot)
+        dot.style.width = `${e.width * 10}px`
+        dot.style.height = `${e.height * 10}px`
+        dot.style.left = `${e.pageX}px`
+        dot.style.top = `${e.pageY}px`
+    }
+
+
+
+    class stio_studio_MultiMouse{
         getInfo() {
             return {
                 // `id` is the internal ID of the extension
                 // It should never change!
                 // If you choose to make an actual extension, please change this to something else.
                 // Only the characters a-z and 0-9 can be used. No spaces or special characters.
-                id: 'localstorage',
+                id: 'stio000MultiMouse',
 
                 // `name` is what the user sees in the toolbox
                 // It can be changed without breaking projects.
-                name: 'Local Storage',
+                name: 'Multi Mouse',
 
-                color1: '#BB1111',
-                color2: '#BB1111',
+                color1: '#aabb44',
+                color2: '#aabb44',
 
                 blocks: [
                     {
@@ -55,5 +93,5 @@
             return;
         }
     }
-    Scratch.extensions.register(new stio_studio_LocalStorage());
+    Scratch.extensions.register(new stio_studio_MultiMouse());
 })(Scratch);
